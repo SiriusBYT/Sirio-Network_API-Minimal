@@ -1,19 +1,14 @@
 # Server Modules
 import socket # API's Native Language 
-import websockets # API's Translated Language
-import ssl # Required for WebSockets BS
-import urllib.request # Required for CORS Proxy
 
 # Multi-threading modules
 import asyncio # Required for WebSockets
-import _thread # Required for multi-client raw socket clients.
 import threading # Required for WebSockets
 
 # Miscellaneous Modules
 import time # Required for logs
 import os # Required for KeyboardInterrupt (DEBUG) and loading config files
 import sys # Required for KeyboardInterrupt (DEBUG)
-import configparser # Load the back-end server config file
 import json # Load the list of servers to redirect to
 import traceback # Error handling
 
@@ -43,9 +38,6 @@ API_PacketSize = int(SRV_CFG["API"]["PacketSize"])
 """ Processed Variables """
 API_SocketHost = socket.gethostname()
 API_RawSocket = socket.socket()
-
-SSL_Options = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-SSL_Options.load_cert_chain(SSL_Cert, keyfile=SSL_Key)
 
 with open("servers.json", "r", encoding="UTF-8") as Entries:
     APIs = json.load(Entries)
