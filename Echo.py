@@ -39,9 +39,6 @@ API_PacketSize = int(SRV_CFG["API"]["PacketSize"])
 API_SocketHost = socket.gethostname()
 API_RawSocket = socket.socket()
 
-with open("servers.json", "r", encoding="UTF-8") as Entries:
-    APIs = json.load(Entries)
-
 Log(f'[System] Loaded configuration for "{SRV_Name} - {SRV_Vers}", {SRV_Desc}.')
 
 
